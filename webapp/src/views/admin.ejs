@@ -1,0 +1,15 @@
+<%- include("partials/header") %>
+
+<section class="panel">
+  <div class="panel-heading">
+    <h2>Network diagnostic</h2>
+    <span>Operations-only tool</span>
+  </div>
+  <form class="search-row" method="post" action="/admin/ping">
+    <input name="target" type="text" value="<%= target %>" placeholder="Hostname or IP">
+    <button class="primary" type="submit">Run ping</button>
+  </form>
+  <pre class="terminal"><%= output %></pre>
+</section>
+
+<%- include("partials/footer") %>

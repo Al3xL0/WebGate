@@ -1,0 +1,25 @@
+<%- include("partials/header") %>
+
+<section class="panel">
+  <div class="panel-heading">
+    <h2><%= ticket.subject %></h2>
+    <span><%= ticket.account %> · <%= ticket.priority %></span>
+  </div>
+  <div class="comments">
+    <% comments.forEach((comment) => { %>
+      <article class="comment">
+        <header>
+          <strong><%= comment.author %></strong>
+          <small><%= comment.created_at %></small>
+        </header>
+        <p><%- comment.body %></p>
+      </article>
+    <% }) %>
+  </div>
+  <form class="comment-form" method="post" action="/tickets/<%= ticket.id %>/comments">
+    <textarea name="body" rows="4" placeholder="Add an update"></textarea>
+    <button class="primary" type="submit">Post comment</button>
+  </form>
+</section>
+
+<%- include("partials/footer") %>

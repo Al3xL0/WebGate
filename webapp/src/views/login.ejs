@@ -1,0 +1,26 @@
+<%- include("partials/header") %>
+
+<section class="login-panel">
+  <div class="login-copy">
+    <p class="eyebrow">Partner access</p>
+    <h2>Welcome back to WebGate</h2>
+    <p>Review accounts, invoices, support activity, and shared documents from one operational workspace.</p>
+  </div>
+
+  <form class="form-card" method="post" action="/login">
+    <% if (error) { %>
+      <div class="alert"><%= error %></div>
+    <% } %>
+    <label>
+      Email
+      <input name="email" type="text" autocomplete="username" value="admin@webgate.local">
+    </label>
+    <label>
+      Password
+      <input name="password" type="password" autocomplete="current-password" value="admin123">
+    </label>
+    <button class="primary" type="submit">Sign in</button>
+  </form>
+</section>
+
+<%- include("partials/footer") %>

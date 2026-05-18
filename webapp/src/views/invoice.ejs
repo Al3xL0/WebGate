@@ -1,0 +1,30 @@
+<%- include("partials/header") %>
+
+<section class="detail-layout">
+  <article class="panel">
+    <div class="panel-heading">
+      <h2><%= invoice.invoice_no %></h2>
+      <span><%= invoice.status %></span>
+    </div>
+    <dl class="details">
+      <div>
+        <dt>Customer</dt>
+        <dd><%= invoice.customer_name %></dd>
+      </div>
+      <div>
+        <dt>Account owner</dt>
+        <dd><%= invoice.owner %></dd>
+      </div>
+      <div>
+        <dt>Amount</dt>
+        <dd><%= invoice.amount %></dd>
+      </div>
+      <div>
+        <dt>Due date</dt>
+        <dd><%= invoice.due_date %></dd>
+      </div>
+    </dl>
+  </article>
+</section>
+
+<%- include("partials/footer") %>

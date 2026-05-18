@@ -1,0 +1,43 @@
+<%- include("partials/header") %>
+
+<section class="metric-grid">
+  <article class="metric">
+    <span>Open tickets</span>
+    <strong><%= metrics.openTickets %></strong>
+  </article>
+  <article class="metric">
+    <span>Invoices due</span>
+    <strong><%= metrics.invoicesDue %></strong>
+  </article>
+  <article class="metric">
+    <span>Active customers</span>
+    <strong><%= metrics.activeCustomers %></strong>
+  </article>
+</section>
+
+<section class="panel">
+  <div class="panel-heading">
+    <h2>Recent activity</h2>
+    <span>Live operational feed</span>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Actor</th>
+        <th>Action</th>
+        <th>Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% metrics.recentEvents.forEach((event) => { %>
+        <tr>
+          <td><%= event.actor %></td>
+          <td><%= event.action %></td>
+          <td><%= event.created_at %></td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</section>
+
+<%- include("partials/footer") %>

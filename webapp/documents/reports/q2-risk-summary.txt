@@ -1,0 +1,7 @@
+Q2 risk summary
+
+High attention accounts:
+- Northwind Health: identity migration issues
+- HelioGrid Energy: pending procurement review
+
+Internal reminder: rotate demo credentials before external demos.

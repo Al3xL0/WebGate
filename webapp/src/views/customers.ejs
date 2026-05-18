@@ -1,0 +1,34 @@
+<%- include("partials/header") %>
+
+<section class="panel">
+  <div class="panel-heading">
+    <h2>Portfolio search</h2>
+    <span><%- q ? `Showing results for "${q}"` : "All customers" %></span>
+  </div>
+  <form class="search-row" method="get" action="/customers">
+    <input name="q" type="text" placeholder="Search by customer or owner" value="<%= q %>">
+    <button class="primary" type="submit">Search</button>
+  </form>
+  <table>
+    <thead>
+      <tr>
+        <th>Customer</th>
+        <th>Industry</th>
+        <th>Owner</th>
+        <th>Risk</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% customers.forEach((customer) => { %>
+        <tr>
+          <td><%= customer.name %></td>
+          <td><%= customer.industry %></td>
+          <td><%= customer.owner %></td>
+          <td><span class="pill"><%= customer.risk %></span></td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</section>
+
+<%- include("partials/footer") %>

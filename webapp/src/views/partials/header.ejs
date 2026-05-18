@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><%= title %> · WebGate</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <a class="brand" href="/dashboard">
+          <span class="brand-mark">W</span>
+          <span>
+            <strong>WebGate</strong>
+            <small>Client operations</small>
+          </span>
+        </a>
+
+        <% if (currentUser) { %>
+          <nav class="nav">
+            <a href="/dashboard">Dashboard</a>
+            <a href="/customers">Customers</a>
+            <a href="/invoices">Invoices</a>
+            <a href="/tickets">Support</a>
+            <a href="/documents">Documents</a>
+            <% if (currentUser.role === "admin") { %>
+              <a href="/admin">Admin</a>
+            <% } %>
+          </nav>
+        <% } %>
+      </aside>
+
+      <main class="main">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Secure client gateway</p>
+            <h1><%= title %></h1>
+          </div>
+          <% if (currentUser) { %>
+            <form class="user-chip" method="post" action="/logout">
+              <span><%= currentUser.name %></span>
+              <small><%= currentUser.role %></small>
+              <button type="submit">Sign out</button>
+            </form>
+          <% } %>
+        </header>
+
+        <% if (notice) { %>
+          <div class="notice"><%= notice %></div>
+        <% } %>

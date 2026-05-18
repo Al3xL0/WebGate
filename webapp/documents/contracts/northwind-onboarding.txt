@@ -1,0 +1,5 @@
+Northwind Health onboarding notes
+
+Identity provider: Azure AD
+Primary contact: Rina Moss
+Open concern: VPN enrollment failures after SSO rollout.

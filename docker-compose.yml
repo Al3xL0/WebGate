@@ -1,0 +1,27 @@
+services:
+  webapp:
+    build: 
+      dockerfile: webapp.dockerfile 
+      context: webapp
+    container_name: webapp
+    ports:
+      - "3000"
+
+    volumes:
+      - webgate-data:/app/data
+    restart: unless-stopped
+  webgate-api: 
+    build : 
+      dockerfile : webgate_api.dockerfile
+      context: webgate-api
+    ports: 
+        - "8000:8000"
+    environment:
+      - PORT=8000
+      - APP_BASE_URL=http://localhost:8000
+    restart: unless-stopped
+
+    volumes: 
+      - ./webgate-api:/app
+volumes:
+  webgate-data:

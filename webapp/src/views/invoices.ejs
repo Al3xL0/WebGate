@@ -1,0 +1,32 @@
+<%- include("partials/header") %>
+
+<section class="panel">
+  <div class="panel-heading">
+    <h2>Invoice queue</h2>
+    <span>Finance operations</span>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Invoice</th>
+        <th>Customer</th>
+        <th>Amount</th>
+        <th>Due</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% invoices.forEach((invoice) => { %>
+        <tr>
+          <td><a href="/invoices/<%= invoice.id %>"><%= invoice.invoice_no %></a></td>
+          <td><%= invoice.customer_name %></td>
+          <td><%= invoice.amount %></td>
+          <td><%= invoice.due_date %></td>
+          <td><span class="pill"><%= invoice.status %></span></td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</section>
+
+<%- include("partials/footer") %>

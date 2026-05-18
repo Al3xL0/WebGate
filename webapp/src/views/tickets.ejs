@@ -1,0 +1,14 @@
+<%- include("partials/header") %>
+
+<section class="ticket-list">
+  <% tickets.forEach((ticket) => { %>
+    <a class="ticket-card" href="/tickets/<%= ticket.id %>">
+      <span class="pill"><%= ticket.priority %></span>
+      <h2><%= ticket.subject %></h2>
+      <p><%= ticket.account %></p>
+      <small><%= ticket.status %> · <%= ticket.created_at %></small>
+    </a>
+  <% }) %>
+</section>
+
+<%- include("partials/footer") %>

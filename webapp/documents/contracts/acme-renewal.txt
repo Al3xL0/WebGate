@@ -1,0 +1,5 @@
+Acme Freight renewal summary
+
+Term: 2026-07-01 through 2027-06-30
+Owner: Maya Chen
+Notes: Customer requested updated security appendix before signature.
