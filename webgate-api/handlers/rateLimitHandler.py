@@ -3,12 +3,12 @@ from fastapi import Request
 from fastapi.responses import JSONResponse
 from slowapi.errors import RateLimitExceeded
 from state.memoryStore import anti_flood_events
-
+from datetime import datetime
 async def rate_limit_exceeded_listener(request: Request, exc: RateLimitExceeded):
     source_ip = request.client.host if request.client else "unknown"
 
     anti_flood_events.append({
-        "timestamp": time.time(),
+        "timestamp": datetime.now().time(),
         "source_ip": source_ip,
         "method": request.method,
         "path": request.url.path,

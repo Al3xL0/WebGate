@@ -44,7 +44,7 @@ async def webgatePipeline(request: Request, call_next):
     latency_ms = round((time.perf_counter() - start) * 1000, 2)
 
     traffic_events.append({
-        "timestamp": datetime.now().time(), # swap to datetime
+        "timestamp": datetime.now().time(),
         "source_ip": source_ip,
         "method": method,
         "path": path,
