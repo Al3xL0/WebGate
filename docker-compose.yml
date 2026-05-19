@@ -9,6 +9,8 @@ services:
 
     volumes:
       - webgate-data:/app/data
+    networks:
+      - webgate-network
     restart: unless-stopped
   webgate-api: 
     build : 
@@ -23,5 +25,29 @@ services:
 
     volumes: 
       - ./webgate-api:/app
+    networks:
+      - webgate-network
+  dashboard:
+    build:
+      dockerfile: dashboard.dockerfile
+      context: dashboard
+    container_name: webgate-dashboard
+    ports:
+      - "5173:5173"
+    environment:
+      - VITE_API_BASE_URL=/api
+      - CHOKIDAR_USEPOLLING=true
+      - WATCHPACK_POLLING=true
+    volumes:
+      - ./dashboard:/app
+      - /app/node_modules
+    networks:
+      - webgate-network
+    depends_on:
+      - webgate-api
+    restart: unless-stopped
 volumes:
   webgate-data:
+networks:
+  webgate-network:
+    driver: bridge

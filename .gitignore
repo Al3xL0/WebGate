@@ -1,0 +1,34 @@
+# Node / Vite
+node_modules/
+**/node_modules/
+dist/
+**/dist/
+.vite/
+**/.vite/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Python
+__pycache__/
+**/__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+.pyc
+# Local data and secrets
+.env
+.env.*
+data/*.sqlite
+*.sqlite
+*.sqlite3
+
+# Docker and OS noise
+.docker/
+.DS_Store
+Thumbs.db

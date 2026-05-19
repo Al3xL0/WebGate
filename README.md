@@ -14,6 +14,12 @@ Then open:
 http://localhost:3000
 ```
 
+The traffic dashboard runs as a React/Vite container on the same Docker network:
+
+```text
+http://localhost:5173
+```
+
 ## Demo Accounts
 
 | Role | Email | Password |
